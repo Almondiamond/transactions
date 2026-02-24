@@ -11,14 +11,12 @@ import {
   TransactionStatusEnum,
   TransactionTypeEnum,
 } from 'src/modules/transaction/enum/transaction-type.enum';
-import { InternalAccountService } from 'src/internal/internal-account.service';
 import { KafkaService } from 'src/config/kafka/kafka.service';
 
 @Injectable()
 export class TransactionbService {
   constructor(
     private prisma: PrismaService,
-    private internalAccountService: InternalAccountService,
     private kafkaService: KafkaService,
   ) {}
 
