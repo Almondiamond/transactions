@@ -1,8 +1,13 @@
 name: Transaction
-on: workflow_dispatch
+on: [workflow_dispatch, push]
 jobs:
   stage_dev:
     runs-on: ubuntu-latest
     steps:
-      - name: lint
-        run: echo Hello
+      - name: get code
+        uses: actions/checkout@v3.5.3
+      - name: install deps
+        run: npm ci
+      - name: unit-test
+        run: npm run test
+
